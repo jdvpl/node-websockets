@@ -31,6 +31,6 @@ btnenviar.addEventListener('click',()=>{
     date:new Date().getTime()
   }
   socket.emit('send-message',payload,(id)=>{
-    console.log("Desde el server",id)
+    console.log("Mi id",id)
   });
 })

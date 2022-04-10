@@ -1,3 +1,4 @@
+const {v4:uuidv4}=require("uuid")
 
 const socketController=(socket) =>{
   console.log("cliente conectado",socket.id)
@@ -7,7 +8,7 @@ const socketController=(socket) =>{
   socket.on('send-message',async(payload,callback)=>{
     // leyendo los mensajes
     socket.broadcast.emit('send-message',payload)
-    const id=123456;
+    const id=uuidv4();
     callback(id)
 
   })
