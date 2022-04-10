@@ -23,5 +23,11 @@ introduccion a los websockets
   cuando se conecta o se desconecta
   cuando se vuelve a conectar
   eventos personzalizados
-  
+
+```
+
+### instalacion d librerias
+
+```
+  npm i nodemon dotenv express socket.io
 ```
