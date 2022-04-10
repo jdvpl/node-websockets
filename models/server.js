@@ -14,6 +14,9 @@ class Server{
     this.middlewares();
     // rutas de mi app
     this.routes();
+
+    // sockets
+    this.sockets();
   }
 
 
@@ -21,6 +24,15 @@ class Server{
   routes() {
     // this.app.use(this.paths.users, require('../routes/user.routes'))
 
+  }
+
+  sockets(){
+    this.io.on('connection',socket =>{
+      console.log("cliente conectado", socket.id);
+      socket.on('disconnect',()=>{
+        console.log("cliente desconectado", socket.id);
+      })
+    })
   }
   listen() {
     this.server.listen(this.port, () => {
