@@ -15,3 +15,13 @@ introduccion a los websockets
   Callbacks en los sockets
   Pruebas en Heroku
 ```
+
+### que son los websockets
+
+```
+  notiificacion en tiempo real 
+  cuando se conecta o se desconecta
+  cuando se vuelve a conectar
+  eventos personzalizados
+  
+```
