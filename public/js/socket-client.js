@@ -9,7 +9,6 @@ const textMensaje=document.querySelector("#textMensaje");
 const socket=io();
 
 socket.on('connect',()=>{
-  console.log("conectado");
   offline.style.display="none";
   online.style.display="";
 })
@@ -17,6 +16,10 @@ socket.on('disconnect',()=>{
   console.log("desconectado del servidor")
   offline.style.display="";
   online.style.display="none";
+})
+// escuchando el emit del socket
+socket.on('send-message',(payload)=>{
+  console.log(payload)
 })
 
 // boton

@@ -19,21 +19,16 @@ class Server{
     this.sockets();
   }
 
-
-
   routes() {
     // this.app.use(this.paths.users, require('../routes/user.routes'))
-
   }
-
   sockets(){
     this.io.on('connection',socket =>{
-      console.log("cliente conectado", socket.id);
       socket.on('disconnect',()=>{
         console.log("cliente desconectado", socket.id);
       })
       socket.on('send-message',(payload)=>{
-        console.log(payload)
+        this.io.emit('send-message',payload)
       })
     })
   }
