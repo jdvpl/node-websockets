@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const { socketController } = require('../sockets/controller');
 class Server{
   constructor(){
     this.app = express();
@@ -23,18 +24,7 @@ class Server{
     // this.app.use(this.paths.users, require('../routes/user.routes'))
   }
   sockets(){
-    this.io.on('connection',socket =>{
-      socket.on('disconnect',()=>{
-        // console.log("cliente desconectado", socket.id);
-      })
-      socket.on('send-message',async(payload,callback)=>{
-        // leyendo los mensajes
-        // this.io.emit('send-message',payload)
-        const id=123456;
-        callback({id,payload})
-
-      })
-    })
+    this.io.on('connection',socketController)
   }
   listen() {
     this.server.listen(this.port, () => {
@@ -45,11 +35,8 @@ class Server{
   middlewares() {
     // usar cors
     this.app.use(cors());
-
     // directorio publico
     this.app.use(express.static("public"));
-
-
   }
 }
 
