@@ -31,3 +31,9 @@ introduccion a los websockets
 ```
   npm i nodemon dotenv express socket.io
 ```
+
+### URL de la app
+
+```
+  https://node-websocket-jdvpl.herokuapp.com/
+```
